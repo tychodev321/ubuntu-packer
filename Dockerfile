@@ -22,3 +22,7 @@ RUN wget ${PACKER_URL} \
     && mv packer /usr/bin/packer
 
 RUN packer --version
+
+USER 1001
+
+CMD ["echo", "This is a 'Purpose Built Image', It is not meant to be ran directly"]
