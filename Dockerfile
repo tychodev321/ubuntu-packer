@@ -3,7 +3,7 @@ FROM registry.access.redhat.com/ubi8/ubi-minimal:8.4
 
 LABEL maintainer=""
 
-ENV PACKER_VERSION=1.7.6
+ENV PACKER_VERSION=1.7.8
 ENV PACKER_URL=https://releases.hashicorp.com/packer/${PACKER_VERSION}/packer_${PACKER_VERSION}_linux_amd64.zip
 
 # MicroDNF is recommended over YUM for Building Container Images
