@@ -21,7 +21,7 @@ RUN wget ${PACKER_URL} \
     && rm packer_${PACKER_VERSION}_linux_amd64.zip \
     && mv packer /usr/bin/packer
 
-RUN packer --version && packer
+RUN packer version
 
 # USER 1001
 
