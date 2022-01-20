@@ -19,7 +19,7 @@ RUN microdnf update -y \
 RUN wget ${PACKER_URL} \ 
     && unzip packer_${PACKER_VERSION}_linux_amd64.zip \
     && rm packer_${PACKER_VERSION}_linux_amd64.zip \
-    && ls -ltr
+    && ls -ltr \
     && mv packer /usr/local/bin/
 
 RUN packer version
