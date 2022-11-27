@@ -24,7 +24,8 @@ RUN wget ${PACKER_URL} \
 RUN packer version
 RUN echo "packer version: $(packer version)" \
     && echo "wget version: $(wget --version | head -n 1)" \
-    && echo "unzip version: $(unzip -v | head -n 1)"
+    && echo "unzip version: $(unzip -v | head -n 1)" \
+    && microdnf repolist
 
 USER 1001
 
