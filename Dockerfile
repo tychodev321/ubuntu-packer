@@ -21,7 +21,6 @@ RUN wget ${PACKER_URL} \
     && rm packer_${PACKER_VERSION}_linux_amd64.zip \
     && mv packer /usr/local/bin/
 
-RUN packer version
 RUN echo "packer version: $(packer version)" \
     && echo "wget version: $(wget --version | head -n 1)" \
     && echo "unzip version: $(unzip -v | head -n 1)" \
