@@ -26,6 +26,6 @@ RUN echo "packer version: $(packer version)" \
     && echo "unzip version: $(unzip -v | head -n 1)" \
     && microdnf repolist
 
-USER 1001
+# USER 1001
 
 CMD ["echo", "This is a 'Purpose Built Image', It is not meant to be ran directly"]
