@@ -1,19 +1,16 @@
-FROM registry.access.redhat.com/ubi9/ubi-minimal:9.0.0
-# FROM redhat/ubi9/ubi-minimal:9.0.0
+FROM ubuntu:22.10
 
 LABEL maintainer=""
 
 ENV PACKER_VERSION=1.8.4
 ENV PACKER_URL=https://releases.hashicorp.com/packer/${PACKER_VERSION}/packer_${PACKER_VERSION}_linux_amd64.zip
 
-# MicroDNF is recommended over YUM for Building Container Images
-# https://www.redhat.com/en/blog/introducing-red-hat-enterprise-linux-atomic-base-image
-
-RUN microdnf update -y \
-    && microdnf install -y unzip \
-    && microdnf install -y wget \
-    && microdnf clean all \
-    && rm -rf /var/cache/* /var/log/dnf* /var/log/yum.*
+RUN apt update -y && apt upgrade -y \
+    && apt install -y unzip \
+    && apt install -y wget \
+    && apt install -y curl \
+    && apt clean -y \
+    && rm -rf /var/lib/apt/lists/*
 
 # Download and install Packer
 RUN wget ${PACKER_URL} \ 
@@ -23,8 +20,7 @@ RUN wget ${PACKER_URL} \
 
 RUN echo "packer version: $(packer version)" \
     && echo "wget version: $(wget --version | head -n 1)" \
-    && echo "unzip version: $(unzip -v | head -n 1)" \
-    && microdnf repolist
+    && echo "unzip version: $(unzip -v | head -n 1)"
 
 # USER 1001
 

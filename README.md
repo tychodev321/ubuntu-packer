@@ -1,1 +1,1 @@
-# ubi-packer
+# ubuntu-packer
