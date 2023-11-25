@@ -17,8 +17,6 @@ on:
   pull_request:
     # The branches below must be a subset of the branches above
     branches: [ "main" ]
-  schedule:
-    - cron: '16 3 * * 5'
 
 permissions:
   contents: read
@@ -34,12 +32,12 @@ jobs:
     - name: Check out the code
       uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag localbuild/testimage:latest
+      run: docker build . --file Dockerfile --tag localbuild/testimage:${{ github.sha }}
     - name: Run the Anchore Grype scan action
       uses: anchore/scan-action@d5aa5b6cb9414b0c7771438046ff5bcfa2854ed7
       id: scan
       with:
-        image: "localbuild/testimage:latest"
+        image: "localbuild/testimage:${{ github.sha }}"
         fail-build: true
         severity-cutoff: critical
     - name: Upload vulnerability report
