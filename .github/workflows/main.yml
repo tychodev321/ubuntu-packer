@@ -5,4 +5,4 @@ on:
 
 jobs:
   call-container-workflow:
-    uses: tychodev321/workflow-templates/.github/workflows/container-publish.yaml@latest
+    uses: tychodev321/workflow-templates/.github/workflows/container-publish.yml@main
