@@ -29,6 +29,7 @@ jobs:
     permissions:
       contents: write # required to upload to the Dependency submission API
     runs-on: ubuntu-latest
+    continue-on-error: true
     steps:
     - name: Checkout the code
       uses: actions/checkout@v3
