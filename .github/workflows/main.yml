@@ -8,7 +8,9 @@ on:
 permissions:
   contents: write
   packages: write
+  actions: read
   id-token: write
+  security-events: write
   
 jobs:
   call-workflow:
