@@ -5,6 +5,11 @@ on:
     branches: [ "main" ]
     tags: [ 'v*.*.*' ]     # Publish semver tags as releases.
 
+permissions:
+  contents: write
+  packages: write
+  id-token: write
+  
 jobs:
   call-workflow:
     uses: tychodev321/workflow-templates/.github/workflows/container-publish.yml@main
