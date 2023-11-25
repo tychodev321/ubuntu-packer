@@ -12,7 +12,6 @@ permissions:
   id-token: write
   security-events: write
 
-
 jobs:
   call-workflow:
     uses: tychodev321/workflow-templates/.github/workflows/container-publish.yml@main
